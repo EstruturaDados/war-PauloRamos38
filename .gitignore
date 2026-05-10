@@ -1,0 +1,5 @@
+war
+*.o
+*.out
+*.exe
+*.obj
