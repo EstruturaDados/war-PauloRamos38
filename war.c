@@ -171,15 +171,16 @@ int main() {
     printf("========================================\n");
 
     // Usuário escolhe quantos territórios existirão
-    printf("\nDigite a quantidade de territorios: ");
-    scanf("%d", &quantidade);
-    limparBufferEntrada();
+       // Loop até receber uma quantidade válida
+       do {
+           printf("\nDigite a quantidade de territorios (maior que 0): ");
+           scanf("%d", &quantidade);
+           limparBufferEntrada();
 
-    // Valida quantidade
-    if (quantidade <= 0) {
-        printf("Erro: Quantidade de territorios deve ser maior que zero!\n");
-        return 0;
-    }
+           if (quantidade <= 0) {
+               printf("Erro: Quantidade deve ser maior que zero!\n");
+           }
+       } while (quantidade <= 0);
 
     // Territorio* mapa
     // Agora o mapa usa ponteiros
