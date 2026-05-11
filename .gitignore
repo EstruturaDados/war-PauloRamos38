@@ -1,5 +1,27 @@
+# Executáveis e arquivos compilados
 war
 *.o
 *.out
 *.exe
 *.obj
+*.a
+*.so
+
+# Arquivos de debug
+*.dSYM/
+*.su
+*.gch
+*.pch
+
+# Arquivos do VS Code
+.vscode/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Backup
+*~
+*.bak
+*.swp
+*.swo
