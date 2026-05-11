@@ -143,3 +143,287 @@ Cada nível foca em um conjunto de habilidades:
 🚀 **Boa sorte! Avance nos níveis e torne-se um mestre da programação estratégica!**
 
 > Equipe de Ensino – MateCheck
+
+// ================================ // Desafio: Nível Aventureiro // Projeto: Cadastro de Territórios (War) // Autor: Paulo Ramos // ================================
+// Blibioteca//
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+// --- Constantes Globais ---
+#define MAX_NOME 30
+#define MAX_COR 10
+//Struct//
+// --- Estrutura de Dados --- 
+//Cria o “modelo” dos territórios:
+
+nome
+cor
+tropas//
+typedef struct {
+
+    char nome[MAX_NOME];
+    char cor[MAX_COR];
+    int tropas;
+
+} Territorio;
+
+// --- Protótipos das Funções ---
+// Funções de setup e gerenciamento de memória:
+Territorio* alocarMapa(int quantidade);
+void cadastrarTerritorios(Territorio* mapa, int quantidade);
+void liberarMemoria(Territorio* mapa);
+
+// Funções de interface com o usuário:
+void exibirTerritorios(const Territorio* mapa, int quantidade);
+
+// Funções de lógica principal do jogo:
+void atacar(Territorio* atacante, Territorio* defensor);
+
+// Função utilitária:
+void limparBufferEntrada();
+//main()//
+int main() {
+
+    int quantidade;
+    int atacante;
+    int defensor;
+
+    srand(time(NULL));
+
+    printf("Digite a quantidade de territorios: ");
+    scanf("%d", &quantidade);
+
+    Territorio* mapa = alocarMapa(quantidade);
+
+    cadastrarTerritorios(mapa, quantidade);
+
+    exibirTerritorios(mapa, quantidade);
+
+    printf("\nEscolha o territorio atacante: ");
+    scanf("%d", &atacante);
+
+    printf("Escolha o territorio defensor: ");
+    scanf("%d", &defensor);
+
+    atacar(&mapa[atacante - 1], &mapa[defensor - 1]);
+
+    printf("\n=== MAPA ATUALIZADO ===\n");
+
+    exibirTerritorios(mapa, quantidade);
+
+    liberarMemoria(mapa);
+
+    return 0;
+}
+//srand(time(NULL))//
+//Inicializa números aleatórios diferentes.//
+//Usuário escolhe quantos territórios existirão.//
+scanf("%d", &quantidade);
+//Agora o mapa usa ponteiros.//
+Territorio* mapa
+//Cria memória dinamicamente usando calloc.//
+//alocarMapa(quantidade)
+Envia os territórios para batalha.
+
+O & significa:
+
+enviar endereço de memória
+usar ponteiros//
+atacar(&mapa[atacante - 1], &mapa[defensor - 1]);
+//cria memória dinâmica.//
+Territorio* alocarMapa(int quantidade) {
+
+    Territorio* mapa;
+
+    mapa = (Territorio*) calloc(quantidade, sizeof(Territorio));
+
+    if(mapa == NULL) {
+
+        printf("Erro ao alocar memoria.\n");
+        exit(1);
+    }
+
+    return mapa;
+}
+//descobre tamanho da struct.//
+sizeof(Territorio)
+//devolve o ponteiro do vetor.//
+return mapa;
+//Agora usa ponteiros. Cadastro//
+void cadastrarTerritorios(Territorio* mapa, int quantidade)
+//Função alocarMapa
+Na implementação://
+Territorio* alocarMapa(int quantidade) {
+
+    Territorio* mapa;
+
+    mapa = (Territorio*) calloc(quantidade, sizeof(Territorio));
+
+    if(mapa == NULL) {
+
+        printf("Erro ao alocar memoria.\n");
+        exit(1);
+    }
+
+    return mapa;
+}
+//Cadastro e Agora usa ponteiros.//
+void cadastrarTerritorios(Territorio* mapa, int quantidade)
+//const garante:
+
+apenas leitura
+sem modificar dados//
+void exibirTerritorios(const Territorio* mapa, int quantidade)
+//Essa função:
+
+sorteia dados
+compara valores
+reduz tropas
+conquista territórios//
+void atacar(Territorio* atacante, Territorio* defensor)
+//Gera número:
+
+de 1 até 6
+
+simulando dado.//
+rand() % 6 + 1
+//Verifica se pertencem ao mesmo exército.//
+strcmp(atacante->cor, defensor->cor)
+A seta acessa campos da struct via ponteiro.
+
+14. Liberação de memória
+free(mapa);
+
+ou:
+
+liberarMemoria(mapa);
+
+Evita vazamento de memória.
+
+15. Final do Codespace
+
+Depois:
+
+salvar
+testar
+terminal:
+git add .
+git commit -m "Implementa nivel aventureiro"
+git push
+
+Isso mantém o repositório atualizado corretamente.
+
+não, eu falo // explicando cada ação que fazemos// acrescentar isso.
+como abro o codespace para acrescentar esse codigo como continuação do mesmo projeto?
+
+Para continuar o mesmo projeto no Codespace, faça assim:
+
+Entre no GitHub
+Abra o repositório do projeto WAR.
+Clique no botão verde:
+Code
+Vá na aba:
+Codespaces
+Você verá:
+o Codespace já criado
+ou a opção “Create codespace on main”
+
+Se o projeto já existe:
+
+clique em:
+Resume
+
+Isso reabre exatamente o mesmo ambiente com seus arquivos.
+
+Depois:
+
+Abrir o arquivo .c
+
+Na lateral esquerda:
+
+clique no arquivo do projeto
+normalmente:
+main.c
+
+ou:
+
+war.c
+Acrescentar comentários explicando as ações
+
+Agora entendi sua dúvida.
+
+Você quer colocar comentários como:
+
+// Inicializa os números aleatórios do jogo
+srand(time(NULL));
+
+Isso é correto e o README pede:
+
+“Comentar o código explicando cada função e trecho importante.”
+
+Então você DEVE acrescentar comentários explicativos.
+
+Exemplo correto:
+
+// Solicita ao usuário a quantidade de territórios
+printf("Digite a quantidade de territorios: ");
+scanf("%d", &quantidade);
+
+Outro:
+
+// Aloca dinamicamente memória para os territórios
+Territorio* mapa = alocarMapa(quantidade);
+
+Outro:
+
+// Simula um dado de batalha de 1 até 6
+dadoAtaque = rand() % 6 + 1;
+
+Outro:
+
+// Libera a memória alocada dinamicamente
+free(mapa);
+
+Então no aventureiro:
+
+você NÃO só programa
+você também explica as ações importantes com // comentários
+
+Isso deixa o projeto fiel ao enunciado e mais profissional.
+
+tem um espaço com o nome current branch, miniature computing maxine, é esse que eu clico?
+
+Sim, provavelmente é esse mesmo.
+
+No Codespaces, às vezes aparece algo como:
+
+Current Branch
+
+e abaixo um nome automático parecido com:
+
+miniature-computing-maxine
+
+Esse nome estranho é apenas o nome do seu Codespace.
+
+Você pode clicar nele para reabrir/continuar o ambiente do projeto.
+
+O fluxo geralmente é:
+
+GitHub
+Repositório
+Code
+Codespaces
+Clique no Codespace existente
+(ex.: miniature-computing-maxine)
+
+Depois disso:
+
+o VS Code web abrirá
+seus arquivos voltarão
+você continua exatamente do ponto onde parou
+
+
+
+
