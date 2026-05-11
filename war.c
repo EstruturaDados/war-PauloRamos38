@@ -175,6 +175,12 @@ int main() {
     scanf("%d", &quantidade);
     limparBufferEntrada();
 
+    // Valida quantidade
+    if (quantidade <= 0) {
+        printf("Erro: Quantidade de territorios deve ser maior que zero!\n");
+        return 0;
+    }
+
     // Territorio* mapa
     // Agora o mapa usa ponteiros
     Territorio* mapa = alocarMapa(quantidade);
@@ -195,13 +201,13 @@ int main() {
     if (atacante < 1 || atacante > quantidade || defensor < 1 || defensor > quantidade) {
         printf("Erro: Territorio invalido!\n");
         liberarMemoria(mapa);
-        return 1;
+        return 0;
     }
 
     if (atacante == defensor) {
         printf("Erro: Atacante e defensor nao podem ser o mesmo territorio!\n");
         liberarMemoria(mapa);
-        return 1;
+        return 0;
     }
 
     // atacar(&mapa[atacante - 1], &mapa[defensor - 1])
